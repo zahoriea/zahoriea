@@ -11,12 +11,15 @@
 
 }
 
+html {
+   overflow-x: hidden;
+}
+
 body {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 2;
     color: #333;
-    overflow-x: hidden;
     background-color: #fafafa;
 }
 
@@ -42,23 +45,55 @@ a, a:visited, a:active, a:focus {
 a:hover {
 }
 
+a img {
+    display: block;
+}
+
+#sans {
+    border-bottom: 0px solid #ccc;
+}
+
+header {
+	margin: 24px 0px 72px -8px;
+
+}
+
 h1 {
-    font-family: 'Cutive Mono', sans-serif;
-    font-size: 2em;
-    font-weight: normal;
+    font-size: 3em;
+    font-weight: 700;
     color: #333;
-    padding-left: 22px;
-    display: none;
+    padding: 0px;
+    text-transform: uppercase;
+    border: 0px solid #ccc;
+    /*display: inline;*/
+    display: inline;
+}
+
+header > a, a:hover, a:active, a:focus {
+	border-bottom: 0px solid #ccc;
 }
 
 h3 {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 700;
     color: #333;
 }
 
 ul {
     list-style: none;
+}
+
+ol {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 32px 12px 32px 12px;
+    list-style: decimal outside none;
+}
+
+ol > li {
+    margin-bottom: 24px;
+    margin-left: 40px;
+    margin-right:12px;
 }
 
 blockquote {
@@ -99,13 +134,14 @@ hr {
 .tags {
     margin-left: -40px;
     padding-bottom: 48px;
+    font-size: .8em;
+    font-weight: 700;
 }
 
 .tags a {
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: .8em;
-    font-weight: 700;
+
     color: #999;
     text-decoration: none;
     border-bottom: none;
@@ -143,6 +179,94 @@ hr {
     font-size: 1.35em;  
 }
 
-header {
-    height:120px;
+
+img.emoji {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+#hi {
+ /*other stuff to try
+      -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+    transition-property: transform;
+    transition-duration: 1s;
+    */
+}
+
+/*#hi:hover {
+    /*-webkit-transform: rotate(12deg);
+    transform: rotate(12deg);
+    -webkit-transition: -webkit-transform .1s ease-in;
+    transition: transform .1s ease-in;
+    -webkit-transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+
+    /* other stuff to try*
+    -webkit-animation-name: rotate; 
+    -webkit-animation-duration: .5s; 
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: .5s; 
+    -moz-animation-iteration-count: 2;
+    -moz-animation-timing-function: linear;
+    animation-name: rotate; 
+    animation-duration: .5s; 
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+}*/
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(20deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(20deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(20deg);}
+}
+
+/*** MEDIA QUERIES ***/
+
+@media only screen and (max-device-width: 1024px) {
+
+    #posts {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 40px;
+        overflow-x: hidden;
+    }
+
+    html, body, img {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    p {
+    font-size: 3em;
+    }
+
+    .tags {
+    font-size: 2.3em;
+    padding: 72px 0;
+    }
+
+    h3 {
+        font-size: 3em;
+        padding-bottom: 12px;
+    }
+
+    img.emoji {
+    height: 4em;
+    width: 4em;
+}
+
 }
