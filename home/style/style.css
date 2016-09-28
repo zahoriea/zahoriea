@@ -1,0 +1,43 @@
+ body {
+        background-color: #fff;
+    }
+
+    #container{       
+          border: 1px  #CCCCCC;
+          margin: 76px auto;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+    }
+   
+    textarea {
+        display: block;
+        overflow: hidden;
+        border: 0;
+        outline: none;
+
+        flex-direction: column;
+        resize: auto;
+        cursor: auto;
+        padding: 20px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+
+        width: 960px;
+        margin: 0 auto;
+        resize: none;
+        overflow-y: scroll;
+
+/* Customize font */
+
+        font-family: 'Inconsolata', sans-serif;
+        font-size: 54px;
+        line-height: 72px;
+        color: #eee;  
+    }
+
+/* Font color, when textarea is active */
+
+    textarea:focus {
+    	color: #e3e3e3;
+    }

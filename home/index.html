@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<head>
+    <!-- Google fonts --> 
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <!-- CSS styles -->     
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body onload="read()">
+	<script src="js/jquery-1.11.3.min.js"></script>
+    
+    <div id="container">
+        <textarea autofocus class='autoExpand' data-min-rows='3' spellcheck="false" id="sup"></textarea>
+    </div>
+    
+    <script>
+        // get the width of the textarea minus scrollbar
+        var textareaWidth = document.getElementById("sup").scrollWidth;
+
+        // width of our wrapper equals width of the inner part of the textarea
+        document.getElementById("container").style.width = textareaWidth + 'px';
+
+        function read()
+        {
+            var doc = document.getElementById("sup");
+            var text = localStorage.getItem("bar");
+            if (text == null || text == "") {
+                text = "";
+            }
+            doc.value = text;
+            doc.style.height = 'auto';
+            doc.style.height = doc.scrollHeight + 'px';
+         }
+
+        $(document)
+            .on('keyup', function (event) {
+                var doc = document.getElementById("sup");
+                var sup = document.getElementById("sup").value;
+                localStorage.setItem("bar", sup);
+                doc.style.height = 'auto';
+                doc.style.height = doc.scrollHeight + 'px';
+                doc.scrollTop = 9999;
+            })
+
+        $(document)
+            .on('keydown', function (event) {            
+                doc.style.height = 'auto';
+                doc.style.height = doc.scrollHeight + 'px';
+                doc.scrollTop = 9999;
+            })
+       
+        $(document)
+    		.one('focus.textarea', '.autoExpand', function(){
+    			var savedValue = this.value;
+    			this.value = '';
+    			this.baseScrollHeight = this.scrollHeight;
+    			this.value = savedValue;
+    		})
+    		.on('input.textarea', '.autoExpand', function(){
+    			var minRows = this.getAttribute('data-min-rows')|0,
+    				 rows;
+    			this.rows = minRows;
+            console.log(this.scrollHeight , this.baseScrollHeight);
+    			rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
+    			this.rows = minRows + rows;
+    		});
+        </script>
+    </body>
+</html>
